@@ -1,4 +1,8 @@
+require './support/number_helper'
+
 class Restaurant
+
+  include NumberHelper
   @@filepath = nil
   def self.filepath=(path=nil)
     @@filepath = File.join(APP_ROOT, path)
@@ -58,9 +62,9 @@ class Restaurant
   end
 
   def initialize(args={})
-    @name = args[:name] || ""
+    @name    = args[:name]    || ""
     @cuisine = args[:cuisine] || ""
-    @price = args[:price] || ""
+    @price   = args[:price]   || ""
   end
 
   def import_line(line)
@@ -75,6 +79,10 @@ class Restaurant
       file.puts "#{[@name, @cuisine, @price].join("\t")}\n"
     end
     return true
+  end
+
+  def formated_price
+    number_to_currency(@price)
   end
 
 end
