@@ -1,2 +1,4 @@
 Hot Tamale	Mexican	25
 Cafe Masala	Indian	30
+pita pocket	fast food	10
+taste of italy	pizza	10
